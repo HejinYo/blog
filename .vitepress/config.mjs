@@ -5,6 +5,13 @@ import { set_sidebar } from "./utils/auto-gen-sidebar.mjs";	// 改成自己的�
 export default defineConfig({
   title: "我的笔记",
   description: "Some documents",
+  
+  // 添加这部分 server 配置
+  server: {
+    host: '0.0.0.0', // 监听所有网络接口
+    port: 5173       // 明确指定端口（可选，但推荐）
+  },
+
   themeConfig: {
     // logo: '/image/logo.png',
     // https://vitepress.dev/reference/default-theme-config
