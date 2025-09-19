@@ -17,7 +17,9 @@ export default defineConfig({
   vite: {
     server: {
       allowedHosts: ['blog.hejinyo.cn'] // 允许的域名
-    }
+    },
+    // 配置静态资源目录
+    publicDir: 'image'
   },
 
   themeConfig: {
