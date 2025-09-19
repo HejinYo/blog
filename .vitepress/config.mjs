@@ -25,7 +25,7 @@ export default defineConfig({
     // Vite 服务器配置
     server: {
       // 允许的域名列表，包括自定义域名
-      allowedHosts: ['ss.hejinyo.cn'] 
+      allowedHosts: ['ss.hejinyo.cn', 'blog.hejinyo.cn'] 
     },
     
     // 静态资源目录配置
