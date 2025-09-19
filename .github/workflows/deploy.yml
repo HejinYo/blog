@@ -43,7 +43,14 @@ jobs:
           node-version: '18' # 使用Node.js 18版本
           cache: 'npm' # 缓存npm依赖
 
-      # 3. 安装依赖 - 明确安装vitepress和vue
+      # 3. 清理可能存在的缓存和锁文件
+      - name: Clean up dependencies cache
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm cache clean --force
+
+      # 4. 安装依赖 - 明确安装vitepress和vue
       - name: Install Dependencies
         run: npm install vitepress vue
 
