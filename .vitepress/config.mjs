@@ -11,8 +11,8 @@ export default defineConfig({
   // 站点描述
   description: "Some documents",
   
-  // 基础路径配置，与 GitHub Pages 的路径匹配
-  base: "/blog/",
+  // 基础路径配置，对于自定义域名设置为根路径
+  base: "/",
 
   // 开发服务器配置
   server: {
@@ -24,7 +24,8 @@ export default defineConfig({
   vite: {
     // Vite 服务器配置
     server: {
-      allowedHosts: ['blog.hejinyo.cn'] // 允许的域名列表
+      // 允许的域名列表，包括自定义域名
+      allowedHosts: ['ss.hejinyo.cn', 'blog.hejinyo.cn'] 
     },
     
     // 静态资源目录配置
