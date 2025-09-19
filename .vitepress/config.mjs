@@ -61,7 +61,7 @@ export default defineConfig({
 
     // 社交媒体链接配置
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/hejnyo/' }
+      { icon: 'github', link: 'https://github.com/hejinyo/' }
     ],
 
     // 页脚配置
