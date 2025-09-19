@@ -177,5 +177,3 @@ hooks 目录 => 存放钩子脚本
 
 # 相关学习资料
 > [Git 官方教程](https://git-scm.com/book/zh/v2)
-> [跟我一起学Git](http://cs-cjl.com/2014/02/18/learn_git_with_me_01)
-> 
