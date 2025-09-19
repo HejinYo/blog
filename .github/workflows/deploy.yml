@@ -1,0 +1,60 @@
+# GitHub Actions工作流：main分支提交后自动部署VitePress网站到GitHub Pages
+name: Deploy VitePress Site to GitHub Pages
+
+# 触发条件：当代码推送到main分支时触发
+on:
+  push:
+    branches: [ main ]
+  # 允许手动触发工作流
+  workflow_dispatch:
+
+# 设置权限，允许工作流部署到GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 工作流环境配置
+env:
+  # 缓存依赖的路径
+  NODE_MODULES_CACHE_PATH: ~/.npm
+
+jobs:
+  # 构建并部署作业
+  deploy:
+    # 运行在最新的Ubuntu环境
+    runs-on: ubuntu-latest
+    # 环境配置
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 1. 检出代码库
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 确保获取完整的git历史
+
+      # 2. 设置Node.js环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # 使用Node.js 18版本
+          cache: 'npm' # 缓存npm依赖
+
+      # 3. 安装依赖
+      - name: Install Dependencies
+        run: npm install
+
+      # 4. 构建VitePress网站
+      - name: Build VitePress Site
+        run: npm run docs:build
+
+      # 5. 部署到GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          # 部署的目录是构建后的dist目录
+          folder: .vitepress/dist
