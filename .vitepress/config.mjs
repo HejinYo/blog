@@ -5,6 +5,7 @@ import { set_sidebar } from "./utils/auto-gen-sidebar.mjs";	// 改成自己的�
 export default defineConfig({
   title: "我的笔记",
   description: "Some documents",
+  base: "/blog/", // 添加base配置，与GitHub Pages的路径匹配
 
   // 添加这部分 server 配置
   server: {

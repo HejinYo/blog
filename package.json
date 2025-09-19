@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev --host 0.0.0.0 --port 5173",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "docs:deploy": "vitepress build && cd .vitepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f git@github.com:hejinyo/blog.git main:gh-pages"
   },
   "keywords": [],
   "author": "",
