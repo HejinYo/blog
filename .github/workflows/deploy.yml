@@ -51,10 +51,16 @@ jobs:
       - name: Build VitePress Site
         run: npm run docs:build
 
-      # 5. 部署到GitHub Pages
+      # 5. 部署到GitHub Pages - 直接推送到gh-pages分支
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          # 部署的目录是构建后的dist目录
-          folder: .vitepress/dist
+        run: |
+          cd .vitepress/dist
+          rm -rf .git
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m 'Auto deploy from GitHub Actions'
+          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/hejinyo/blog.git HEAD:gh-pages
+          echo "page_url=https://hejinyo.github.io/blog/" >> $GITHUB_OUTPUT
