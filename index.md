@@ -7,7 +7,7 @@ hero:
   # text: "Some documents"
   # tagline: 口号
   image:
-    src: background.png
+    src: /image/background.png
     alt: HejinYo's blog
   actions:
     - theme: brand
