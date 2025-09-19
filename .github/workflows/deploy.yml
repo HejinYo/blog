@@ -43,9 +43,9 @@ jobs:
           node-version: '18' # 使用Node.js 18版本
           cache: 'npm' # 缓存npm依赖
 
-      # 3. 安装依赖
+      # 3. 安装依赖 - 明确安装vitepress和vue
       - name: Install Dependencies
-        run: npm install
+        run: npm install vitepress vue
 
       # 4. 构建VitePress网站
       - name: Build VitePress Site
